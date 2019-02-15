@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="546.0" prefWidth="726.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="vote.ResultatsController">
+   <children>
+      <Pane prefHeight="65.0" prefWidth="726.0" style="-fx-background-color: rgb(199, 193, 193);">
+         <children>
+            <Pane prefHeight="54.0" prefWidth="138.0" style="-fx-background-color: rgb(102, 99, 99);">
+               <children>
+                  <Label layoutX="19.0" layoutY="8.0" text="E-Voting" textFill="WHITE">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label fx:id="identifiant" layoutX="258.0" layoutY="19.0" text="Label" visible="false" />
+            <Pane layoutX="588.0" prefHeight="54.0" prefWidth="138.0" style="-fx-background-color: rgb(102, 99, 99);">
+               <children>
+                  <ImageView fx:id="exit" fitHeight="38.0" fitWidth="42.0" layoutX="92.0" layoutY="8.0" onMouseClicked="#sortie" onMouseEntered="#sortieEntered" onMouseExited="#sortieExited" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/exit.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="help" fitHeight="33.0" fitWidth="33.0" layoutX="52.0" layoutY="11.0" onMouseClicked="#aide" onMouseEntered="#aideEntered" onMouseExited="#aideExited" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/help.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane> 
+         </children>
+      </Pane>
+      <BarChart fx:id="resultats" layoutX="65.0" layoutY="65.0" prefHeight="481.0" prefWidth="726.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
+        <xAxis>
+          <CategoryAxis fx:id="axe" side="BOTTOM" tickLabelGap="10.0" tickLength="10.0">
+               <tickLabelFont>
+                  <Font size="24.0" />
+               </tickLabelFont></CategoryAxis>
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="ordonnee" minorTickCount="1" side="LEFT" tickLabelGap="10.0" tickLength="10.0">
+               <tickLabelFont>
+                  <Font size="18.0" />
+               </tickLabelFont></NumberAxis>
+        </yAxis>
+      </BarChart>
+   </children>
+</AnchorPane>

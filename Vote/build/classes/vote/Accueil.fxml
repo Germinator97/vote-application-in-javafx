@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="407.0" prefWidth="686.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="vote.AccueilController">
+   <children>
+      <Pane prefHeight="65.0" prefWidth="686.0" style="-fx-background-color: rgb(199, 193, 193);" />
+      <Pane layoutX="548.0" prefHeight="54.0" prefWidth="138.0" style="-fx-background-color: rgb(102, 99, 99);">
+         <children>
+            <ImageView fx:id="exit" fitHeight="38.0" fitWidth="42.0" layoutX="92.0" layoutY="8.0" onMouseClicked="#sortie" onMouseEntered="#sortieEntered" onMouseExited="#sortieExited" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/exit.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="help" fitHeight="33.0" fitWidth="33.0" layoutX="52.0" layoutY="11.0" onMouseClicked="#aide" onMouseEntered="#aideEntered" onMouseExited="#aideExited" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/help.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="admin" fitHeight="33.0" fitWidth="33.0" layoutX="12.0" layoutY="10.0" onMouseClicked="#administrateur" onMouseEntered="#adminEntered" onMouseExited="#adminExited" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/admin.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane prefHeight="54.0" prefWidth="138.0" style="-fx-background-color: rgb(102, 99, 99);">
+         <children>
+            <Label layoutX="19.0" layoutY="8.0" text="E-Voting" textFill="WHITE">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fitHeight="372.0" fitWidth="686.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/vote.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="22.0" layoutY="94.0" text="Bienvenue sur la plateforme E-Voting !!!!">
+         <font>
+            <Font size="36.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.48333333333333334" centerY="0.21428571428571425" cycleMethod="REPEAT" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="#0c00f2" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="125.0" layoutY="204.0" text="Identifier-vous pour effectuer un vote." textFill="#05ccff">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Button defaultButton="true" layoutX="214.0" layoutY="287.0" mnemonicParsing="false" onAction="#electeur" prefHeight="50.0" prefWidth="260.0" stylesheets="@../style/theme.css" text="Voter" textFill="#0e26c4">
+         <font>
+            <Font size="26.0" />
+         </font>
+         <graphic>
+             <ImageView fitHeight="21.0" fitWidth="29.0" layoutX="375.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                 <image>
+                     <Image url="@../images/voter.png" />
+                 </image>
+             </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

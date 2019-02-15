@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="357.0" prefWidth="558.0" style="-fx-background-color: rgb(160, 174, 180);" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="vote.AideController">
+   <children>
+      <Pane prefHeight="65.0" prefWidth="558.0" style="-fx-background-color: rgb(199, 193, 193);">
+         <children>
+            <Pane prefHeight="54.0" prefWidth="138.0" style="-fx-background-color: rgb(102, 99, 99);">
+               <children>
+                  <Label layoutX="19.0" layoutY="8.0" text="E-Voting" textFill="WHITE">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="420.0" prefHeight="54.0" prefWidth="138.0" style="-fx-background-color: rgb(102, 99, 99);">
+               <children>
+                  <ImageView fx:id="exit" fitHeight="38.0" fitWidth="42.0" layoutX="92.0" layoutY="8.0" onMouseClicked="#sortie" onMouseEntered="#sortieEntered" onMouseExited="#sortieExited" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/exit.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Label layoutX="36.0" layoutY="218.0" text="Texte d'aide à la manipulation de l'application">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="243.0" layoutY="126.0" text="Aide">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+
+
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="274.0" prefWidth="357.0" style="-fx-background-color: rgb(160, 174, 180);" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="vote.SplashController">
+   <children>
+      <Circle fx:id="cercle1" fill="#a0aeb4" radius="100.0" stroke="#3897f7" strokeType="INSIDE" strokeWidth="10.0" style="-fx-stroke-dash-array: 40;">
+         <effect>
+            <Glow level="0.0" />
+         </effect>
+      </Circle>
+      <Circle fx:id="cercle2" fill="#9daab0" radius="69.0" stroke="#585a5c" strokeType="INSIDE" strokeWidth="7.0" style="-fx-stroke-dash-array: 30;">
+         <effect>
+            <Glow level="0.0" />
+         </effect>
+      </Circle>
+      <Circle fx:id="cercle3" fill="#a0aeb4" radius="34.0" stroke="GREEN" strokeType="INSIDE" strokeWidth="5.0" style="-fx-stroke-dash-array: 15;">
+         <effect>
+            <Glow level="0.0" />
+         </effect>
+      </Circle>
+   </children>
+</StackPane>
