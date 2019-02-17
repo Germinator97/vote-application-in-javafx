@@ -7,6 +7,7 @@ package vote;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -100,12 +102,23 @@ public class ModificationController implements Initializable {
                 
                 if (test == true) {
                     
-                    Parent admin = FXMLLoader.load(getClass().getResource("Administration.fxml"));
-                    Scene admin_scene = new Scene(admin);
-                    Stage admin_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    admin_stage.hide();
-                    admin_stage.setScene(admin_scene);
-                    admin_stage.show();
+                    Alert msg = new Alert(Alert.AlertType.CONFIRMATION);
+                    msg.initStyle(StageStyle.UNDECORATED);
+                    msg.setHeaderText("Confirmation de la modification");
+                    msg.setContentText("Voulez-vous effectiver modifier vos informations d'adminnistartaeur ?");
+
+                    Optional<ButtonType> choix = msg.showAndWait();
+
+                    if (choix.get() == ButtonType.OK) {
+
+                        Parent admin = FXMLLoader.load(getClass().getResource("Administration.fxml"));
+                        Scene admin_scene = new Scene(admin);
+                        Stage admin_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        admin_stage.hide();
+                        admin_stage.setScene(admin_scene);
+                        admin_stage.show();
+
+                    }
                     
                 }
                 

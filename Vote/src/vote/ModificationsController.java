@@ -8,6 +8,7 @@ package vote;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -209,12 +211,23 @@ public class ModificationsController implements Initializable {
 
                 if (i == 1) {
                     
-                    Parent admin = FXMLLoader.load(getClass().getResource("Administration.fxml"));
-                    Scene admin_scene = new Scene(admin);
-                    Stage admin_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    admin_stage.hide();
-                    admin_stage.setScene(admin_scene);
-                    admin_stage.show();
+                    Alert msg = new Alert(Alert.AlertType.CONFIRMATION);
+                    msg.initStyle(StageStyle.UNDECORATED);
+                    msg.setHeaderText("Confirmation de la modification");
+                    msg.setContentText("Voulez-vous effectiver modifier les informations de cette personne ?");
+
+                    Optional<ButtonType> choix = msg.showAndWait();
+
+                    if (choix.get() == ButtonType.OK) {
+
+                        Parent admin = FXMLLoader.load(getClass().getResource("Administration.fxml"));
+                        Scene admin_scene = new Scene(admin);
+                        Stage admin_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        admin_stage.hide();
+                        admin_stage.setScene(admin_scene);
+                        admin_stage.show();
+
+                    }
                     
                 }
                 

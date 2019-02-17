@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,6 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -258,11 +260,22 @@ public class AdministrationController implements Initializable {
     @FXML
     private void supprimer(ActionEvent event) {
         
-        Suppression del = new Suppression();
-        del.personnes(Integer.parseInt(identifiant.getText()));
+        Alert msg = new Alert(Alert.AlertType.CONFIRMATION);
+        msg.initStyle(StageStyle.UNDECORATED);
+        msg.setHeaderText("Confirmation de la suppression");
+        msg.setContentText("Voulez-vous effectiver supprimer cette personne de la base de données ?");
+            
+        Optional<ButtonType> choix = msg.showAndWait();
+        
+        if (choix.get() == ButtonType.OK) {
+            
+            Suppression del = new Suppression();
+            del.personnes(Integer.parseInt(identifiant.getText()));
 
-        int selectedIndex = liste.getSelectionModel().getSelectedIndex();
-        liste.getItems().remove(selectedIndex);
+            int selectedIndex = liste.getSelectionModel().getSelectedIndex();
+            liste.getItems().remove(selectedIndex);
+            
+        }
         
     }
 

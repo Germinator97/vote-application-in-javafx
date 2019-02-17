@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,6 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -244,14 +246,28 @@ public class VoteController implements Initializable {
     @FXML
     private void voter(ActionEvent event) throws IOException {
         
-        Election election = new Election();
-        election.vote(Integer.parseInt(idElecteur.getText()), Integer.parseInt(idCandidat.getText()));
-        Parent accueil = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
-        Scene accueil_scene = new Scene(accueil);
-        Stage accueil_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        accueil_stage.hide();
-        accueil_stage.setScene(accueil_scene);
-        accueil_stage.show();
+        Alert msg = new Alert(Alert.AlertType.CONFIRMATION);
+        msg.initStyle(StageStyle.UNDECORATED);
+        msg.setHeaderText("Confirmation du choix");
+        msg.setContentText("Voulez-vous effectivement voter pour ce candiat ? "
+                + "Si oui, votre choix sera enregistré. Cependant vous n'aurez plus la possibilité de refaire le vote. "
+                + "Assurez vous donc de votre choix de candidat.");
+            
+        Optional<ButtonType> choix = msg.showAndWait();
+        
+        if (choix.get() == ButtonType.OK) {
+            
+            Election election = new Election();
+            election.vote(Integer.parseInt(idElecteur.getText()), Integer.parseInt(idCandidat.getText()));
+            
+            Parent accueil = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
+            Scene accueil_scene = new Scene(accueil);
+            Stage accueil_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            accueil_stage.hide();
+            accueil_stage.setScene(accueil_scene);
+            accueil_stage.show();
+            
+        }
         
     }
 
