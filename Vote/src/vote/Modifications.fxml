@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="655.0" prefWidth="686.0" style="-fx-background-color: rgb(160, 174, 180);" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="vote.ModificationsController">
+<AnchorPane id="AnchorPane" prefHeight="655.0" prefWidth="686.0" style="-fx-background-color: rgb(160, 174, 180);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vote.ModificationsController">
    <children>
       <Pane prefHeight="65.0" prefWidth="686.0" style="-fx-background-color: rgb(199, 193, 193);">
          <children>
@@ -73,7 +73,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <RadioButton layoutX="200.0" layoutY="340.0" mnemonicParsing="false" selected="true" text="Masculin">
+      <RadioButton fx:id="masculin" layoutX="200.0" layoutY="340.0" mnemonicParsing="false" text="Masculin">
          <font>
             <Font size="18.0" />
          </font>
@@ -81,7 +81,7 @@
             <ToggleGroup fx:id="sexes" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="345.0" layoutY="340.0" mnemonicParsing="false" text="Féminin" toggleGroup="$sexes">
+      <RadioButton fx:id="feminin" layoutX="345.0" layoutY="340.0" mnemonicParsing="false" text="Féminin" toggleGroup="$sexes">
          <font>
             <Font size="18.0" />
          </font>
@@ -121,7 +121,7 @@
             <Font size="18.0" />
          </font>
       </TextField>
-      <RadioButton layoutX="341.0" layoutY="172.0" mnemonicParsing="false" text="Candidat">
+      <RadioButton fx:id="candidat" layoutX="341.0" layoutY="172.0" mnemonicParsing="false" text="Candidat">
          <font>
             <Font size="18.0" />
          </font>
@@ -129,7 +129,7 @@
             <ToggleGroup fx:id="statuts" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="204.0" layoutY="172.0" mnemonicParsing="false" selected="true" text="Electeur" toggleGroup="$statuts">
+      <RadioButton fx:id="electeur" layoutX="204.0" layoutY="172.0" mnemonicParsing="false" text="Electeur" toggleGroup="$statuts">
          <font>
             <Font size="18.0" />
          </font>

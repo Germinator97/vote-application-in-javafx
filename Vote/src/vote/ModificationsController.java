@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
@@ -69,6 +70,14 @@ public class ModificationsController implements Initializable {
     private Button supprimer;
     @FXML
     private ImageView help;
+    @FXML
+    private RadioButton masculin;
+    @FXML
+    private RadioButton feminin;
+    @FXML
+    private RadioButton candidat;
+    @FXML
+    private RadioButton electeur;
 
     /**
      * Initializes the controller class.
@@ -80,9 +89,9 @@ public class ModificationsController implements Initializable {
      
     }
     
-    public void choix(boolean choix) {
+    public void choix() {
         
-        if (choix != true) {
+        if (candidat.selectedProperty().get() == true) {
             
             changer.setDisable(false);
             
@@ -96,7 +105,7 @@ public class ModificationsController implements Initializable {
             
         }
         
-        else {
+        else if (electeur.selectedProperty().get() == true) {
             
             changer.setDisable(true);
             supprimer.setDisable(true);
@@ -136,9 +145,25 @@ public class ModificationsController implements Initializable {
             this.image.setText(name);
             
         }
+        
+        Liste liste = new Liste();
+        int[] id = liste.idCandidats();
+        
+        electeur.setSelected(true);
+        masculin.setSelected(true);
+        
+        for (int i : id) {
+            if(i == Integer.parseInt(identifiant.getText())) {
+                candidat.setSelected(true);
+            }
+        }
+        
+        if (personne.getSexe().equals("Féminin")) {
+            feminin.setSelected(true);
+        }
             
-        choix(true);
-        statuts.getSelectedToggle().selectedProperty().addListener((observable, oldValue, newValue) -> choix(newValue));
+        choix();
+        statuts.getSelectedToggle().selectedProperty().addListener((observable, oldValue, newValue) -> choix());
     
     }    
 
